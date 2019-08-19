@@ -88,7 +88,7 @@ def square_root_post():
   	      print(request.form['text'].split())
   	      total = 0
   	      try:
-  	      	value = sqrt(int(request.form['text'])
+  	      	value = sqrt(int(request.form['text']))
   	      	return render_template('square_root.html', result=str(value))
   	      except ValueError:
   	      	return "Easy now! Let's keep it simple! Submit a single positive number!"
