@@ -3,6 +3,7 @@ import datetime
 import pytz # timezone 
 import requests
 import os
+from math import sqrt
 
 
 
@@ -77,9 +78,20 @@ def time_post():
               
             return render_template('time.html', result=answer)
 
-@app.rout('/square_root')
+@app.route('/square_root', methods=['GET','POST'])
 def square_root_post():
-	return render_template('square_root.html')
+	  # --> ['5', '6', '8']
+	  # print(type(request.form['text']))
+	  if request.method == 'GET':
+	  	return render_template('square_root.html')
+	  elif request.method == 'POST':
+  	      print(request.form['text'].split())
+  	      total = 0
+  	      try:
+  	      	value = sqrt(int(request.form['text'])
+  	      	return render_template('square_root.html', result=str(value))
+  	      except ValueError:
+  	      	return "Easy now! Let's keep it simple! Submit a single positive number!"
 
 @app.route('/python_apps')
 def python_apps_page():
