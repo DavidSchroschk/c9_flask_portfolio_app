@@ -107,7 +107,12 @@ def python_apps_page():
 
 @app.route('/blog', methods=['GET'])
 def blog_page():
-  return render_template('blog.html')
+	return render_template('blog.html')
+
+@app.route('/todos', methods=['GET','POST'])
+def todos_page():
+	return render_template('todos.html')
+	
 
 
 if __name__ == '__main__':
